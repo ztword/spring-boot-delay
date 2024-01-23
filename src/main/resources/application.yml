@@ -1,0 +1,46 @@
+server:
+  port: 8088
+
+# 设置日志级别为INFO
+logging:
+  level:
+    root: INFO
+
+# 允许Actuator修改日志配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: loggers
+
+#management:
+#  endpoint:
+#    loggers:
+#      enabled: true
+#  endpoints:
+#    web:
+#      exposure:
+#        include: loggers
+
+#logging:
+#  config: classpath:logback-spring.xml
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://8.130.74.105:3306/delay?useSSL=false&serverTimezone=UTC
+    username: root
+    password: zhang.ting.123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+#    show-sql: true
+import:
+  thread:
+    core: 10
+    max: 20
+    queue: 100
+    keepAlive: 60
